@@ -10,8 +10,9 @@ import lombok.*;
 @ToString
 @Builder
 @Embeddable
-public class Company {
-    private String name;
-    private String logo;
-    private String url;
+public class Location {
+    private String city;
+    private String country;
+    private String state;
+    private String type; // remote, on-site, etc.
 }

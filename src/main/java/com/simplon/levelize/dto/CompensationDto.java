@@ -9,8 +9,9 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CompanyDto implements Serializable {
-    private String name;
-    private String logo;
-    private String url;
+public class CompensationDto implements Serializable {
+    private Long base;
+    private Long bonus;
+    private Long stock;
+    private String currency;
 }

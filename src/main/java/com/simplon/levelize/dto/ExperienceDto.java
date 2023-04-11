@@ -9,8 +9,7 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CompanyDto implements Serializable {
-    private String name;
-    private String logo;
-    private String url;
+public class ExperienceDto implements Serializable {
+    private Long total;
+    private Long atCompany;
 }

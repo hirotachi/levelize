@@ -10,8 +10,9 @@ import lombok.*;
 @ToString
 @Builder
 @Embeddable
-public class Company {
-    private String name;
-    private String logo;
-    private String url;
+public class Compensation {
+    private Long base;
+    private Long bonus;
+    private Long stock;
+    private String currency;
 }

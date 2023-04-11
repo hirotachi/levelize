@@ -7,10 +7,13 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-public class CompanyDto implements Serializable {
-    private String name;
-    private String logo;
-    private String url;
+@NoArgsConstructor
+public class LocationDto implements Serializable {
+    private String city;
+    private String country;
+    private String state;
+    private String type;
+
+    
 }

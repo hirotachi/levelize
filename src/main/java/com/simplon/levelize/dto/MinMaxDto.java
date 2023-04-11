@@ -9,8 +9,9 @@ import java.io.Serializable;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class CompanyDto implements Serializable {
-    private String name;
-    private String logo;
-    private String url;
+public class MinMaxDto implements Serializable {
+    private Long min;
+    private Long max;
+    private Long total;
+    private Long count;
 }
