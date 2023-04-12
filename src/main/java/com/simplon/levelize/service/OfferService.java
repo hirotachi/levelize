@@ -36,4 +36,8 @@ public class OfferService extends GenericServiceImpl<Offer, OfferDto, Long> {
     public MinMaxDto getMinMidMaxSalary(String title, String location) {
         return repository.getMinMidMaxSalary(title, location);
     }
+
+    public Page<OfferDto> getOffersByTitle(Pageable pageable, String title, String search) {
+        return repository.searchOffersByTitle(title, search, pageable).map(this::convertToDto);
+    }
 }

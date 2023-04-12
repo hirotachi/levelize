@@ -44,4 +44,13 @@ public interface OfferRepository extends GenericRepository<Offer, Long> {
             "OR LOWER(c.location.city) LIKE LOWER(CONCAT('%', :location, '%')) " +
             "OR LOWER(c.location.state) LIKE LOWER(CONCAT('%', :location, '%')) OR :location IS NULL)")
     MinMaxDto getMinMidMaxSalary(@Param("title") String title, @Param("location") String location);
+
+    @Query("SELECT c FROM Offer c " +
+            "WHERE LOWER(c.title) LIKE LOWER(CONCAT('%', :title, '%')) " +
+            "AND (LOWER(c.company.name) LIKE LOWER(CONCAT('%', :search, '%')) " +
+            "OR LOWER(c.location.country) LIKE LOWER(CONCAT('%', :search, '%')) " +
+            "OR LOWER(c.location.city) LIKE LOWER(CONCAT('%', :search, '%')) " +
+            "OR LOWER(c.location.state) LIKE LOWER(CONCAT('%', :search, '%')) " +
+            "OR LOWER(c.tag) LIKE LOWER(CONCAT('%', :search, '%')) OR :search IS NULL)")
+    Page<Offer> searchOffersByTitle(@Param("title") String title, @Param("search") String search, Pageable pageable);
 }

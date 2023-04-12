@@ -51,6 +51,20 @@ public class OfferController extends GenericController<OfferDto, Long> {
         }
     }
 
+    @GetMapping("/titles/{title}")
+    public ResponseEntity<Page<OfferDto>> getOffersByTitle(Pageable pageable, @PathVariable String title, @RequestParam(required = false) String search) {
+        try {
+            logger.info("GET {}/titles/{} - search: {}", getEndpoint(), title, search);
+            Page<OfferDto> offers = service.getOffersByTitle(pageable, title, search);
+            logger.info("GET {}/titles/{} - {} offers found", getEndpoint(), title, offers.getTotalElements());
+            return ResponseEntity.ok(offers);
+        } catch (Exception e) {
+            logger.info("GET {}/titles/{} - error: {}", getEndpoint(), title, e.getMessage());
+            return ResponseEntity.internalServerError().build();
+        }
+    }
+
+
     @GetMapping("/min-max")
     public ResponseEntity<MinMaxDto> getMinMidMax(@RequestParam(required = false) String title, @RequestParam(required = false) String location) {
         try {
